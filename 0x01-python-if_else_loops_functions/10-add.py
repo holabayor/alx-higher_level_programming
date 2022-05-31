@@ -2,5 +2,5 @@
 
 # Author - Liasu Aanuoluwapo
 
-def add(a,):
+def add(a,b):
     return(a+b)
