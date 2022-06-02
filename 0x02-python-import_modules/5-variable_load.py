@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Imports a variable a and prints its value
+"""Imports a variable a  and prints its value
 """
 
 if __name__ == "__main__":
