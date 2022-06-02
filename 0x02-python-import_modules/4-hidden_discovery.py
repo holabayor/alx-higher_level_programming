@@ -1,13 +1,13 @@
 #!/usr/bin/python3
+import sys
 import hidden_4
 
 
 def main():
     file = dir(hidden_4)
-    length = len(file)
-    for i in range(length):
-        if file[i][:2] != '__':
-            print(file[i])
+    for line in file:
+        if line[:2] != '__':
+            print(line)
 
 
 if __name__ == "__main__":
