@@ -53,17 +53,22 @@ class Rectangle:
         """Returns the perimeter of the rectangle"""
         if not (self.__width or self.__height):
             return 0
-        else:
-            return 2 * (self.__width + self.__height)
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Returns the string representation of the rectangle"""
         if not (self.__width or self.__height):
             return ("")
+
         rec = []
         for i in range(self.__height):
-            for j in range(self.__width):
-                rec.append("#")
+            [rec.append("#") for j in range(self.__width)]
             if (i < self.__height - 1):
                 rec.append("\n")
         return "".join(rec)
+
+    def __repr__(self):
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+
+    def __del__(self):
+        print("Bye rectangle...")
