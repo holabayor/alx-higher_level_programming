@@ -27,6 +27,10 @@ Usage:
 	>>> a.print_sorted()
 	[1, 8, 9]
 
+	>>> a.append(-5)
+	>>> a.print_sorted()
+	[-5, 1, 8, 9]
+
 	>>> a.append("b")
 	>>> a.print_sorted()
 	Traceback (most recent call last):
