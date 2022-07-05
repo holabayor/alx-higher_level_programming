@@ -24,7 +24,8 @@ Usage:
 	>>> a.print_sorted()
 	[1, 8, 9]
 
-	>>>a.append("b")
+	>>> a.append("b")
+	>>> a.print_sorted()
 	Traceback (most recent call last):
 		...
 	TypeError: '<' not supported between instances of 'str' and 'int'
