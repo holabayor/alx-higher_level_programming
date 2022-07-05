@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-This module implements a function a that checks for subclasses
+This module implements a function a that checks for inheritance
 """
 
 
-def is_kind_of_class(obj, a_class):
-    """ Function that checks if an object is a subclass
-    of a specified class
+def inherits_from(obj, a_class):
+    """ Function that checks if the instance of an
+    object is inherited from a specified class
     """
     return issubclass(obj, a_class)
