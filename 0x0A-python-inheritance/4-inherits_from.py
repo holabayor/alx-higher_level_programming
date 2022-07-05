@@ -8,4 +8,4 @@ def inherits_from(obj, a_class):
     """ Function that checks if the instance of an
     object is inherited from a specified class
     """
-    return issubclass(obj, a_class)
+    return issubclass(tpye(obj), a_class)
