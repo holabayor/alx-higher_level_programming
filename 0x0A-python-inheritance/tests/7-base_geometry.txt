@@ -9,6 +9,7 @@ First import ``BaseGeometry`` from the ``7-base_geometry`` module:
 
 Usage:
 	>>> bg = BaseGeometry()
+
 	>>> bg.area()
 	Traceback (most recent call last):
 		...
