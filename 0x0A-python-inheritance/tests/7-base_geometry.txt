@@ -4,32 +4,52 @@ BaseGeometry module
 Using ``BaseGeometry``
 ----------------
 
-First import ``BaseGeometry`` from the ``7-base_geometry`` module:
-	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+First import ``BaseGeometry`` from the ``7-base_geometry``
 
-Usage:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> bg = BaseGeometry()
 
+Check the area method without args
 	>>> bg.area()
 	Traceback (most recent call last):
 		...
 	Exception: area() is not implemented
 
+
+Check the integer validator method without args
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 		...
 	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-	>>> bg.integer_validator("my_int", 12)
 
+Check for integer input
 	>>> bg.integer_validator("length", 45)
 
+
+Check for negative integer input
 	>>> bg.integer_validator("my_list", -7)
 	Traceback (most recent call last):
 		...
 	ValueError: my_list must be greater than 0
 
+
+Check for string input
 	>>> bg.integer_validator("length", "long")
 	Traceback (most recent call last):
 		...
 	TypeError: length must be an integer
+
+
+Check for without integer
+	>>> bg.integer_validator("height")
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+Check for Bool
+	>>> bg.integer_validator("money", None)
+	Traceback (most recent call last):
+		...
+	TypeError: money must be an integer
