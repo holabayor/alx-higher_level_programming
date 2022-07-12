@@ -2,7 +2,7 @@
 """
 Rectangle object implementation module
 """
-from models.base import Base
+Rectangle = __import__("models.base").base.Base
 
 
 class Rectangle(Base):
