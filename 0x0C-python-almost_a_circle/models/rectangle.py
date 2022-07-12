@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Rectangle object"""
+"""
+Rectangle object implementation module
+"""
 from models.base import Base
 
 
@@ -16,6 +18,13 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+
+    def __str__(self):
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
+                                                                 self.__x,
+                                                                 self.__y,
+                                                                 self.__width,
+                                                                 self.__height)
 
     def validate(self, name: str, value: int, not_zero=True) -> None:
         """Validates the input values
@@ -52,7 +61,7 @@ class Rectangle(Base):
     def x(self):
         return self.__x
 
-    @width.setter
+    @x.setter
     def x(self, value):
         self.validate('x', value, False)
         self.__x = value
@@ -61,7 +70,54 @@ class Rectangle(Base):
     def y(self):
         return self.__y
 
-    @width.setter
+    @y.setter
     def y(self, value):
         self.validate('y', value, False)
         self.__y = value
+
+
+    def area(self):
+        """ Calculates the area """
+        return self.__width * self.__height
+
+    def display(self):
+        """ Prints a rectangle with # """
+        print("\n" * self.__y, end="")
+        for i in range(self.__height):
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
+
+    def update(self, *args, **kwargs):
+        """ Updates a rectangle """
+        if len(args):
+            for i, j in enumerate(args):
+                if i == 0:
+                    self.id = j
+                elif i == 1:
+                    self.width = j
+                elif i == 2:
+                    self.height = j
+                elif i == 3:
+                    self.x = j
+                elif i == 4:
+                    self.y = j
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.width = kwargs["width"]
+            if "height" in kwargs:
+                self.height = kwargs["height"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
+
+    def to_dictionary(self):
+        """ To Dictionary """
+        result = {"x": self.__dict__["_Rectangle__x"],
+                  "width": self.__dict__["_Rectangle__width"],
+                  "id": self.__dict__["id"],
+                  "height": self.__dict__["_Rectangle__height"],
+                  "y": self.__dict__["_Rectangle__y"]}
+        return result

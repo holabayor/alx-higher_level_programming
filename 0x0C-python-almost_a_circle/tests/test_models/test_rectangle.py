@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import unittest
-from modelsrectangle import Rectangle
+Rectangle = __import__("models.rectangle").rectangle.Rectangle
 
 class TestRectangle(unittest.TestCase):
 
@@ -8,7 +8,6 @@ class TestRectangle(unittest.TestCase):
 
         rec_1 = Rectangle(3, 4)
         self.assertEqual(rec_1.width, 3)
-        self.assertEqual(rec_1.height, 4)
         self.assertEqual(rec_1.x, 0)
         self.assertEqual(rec_1.y, 0)
         self.assertEqual(rec_1.id, 1)
@@ -35,9 +34,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rec_4.id, 4)
 
     def test_attributes(self):
-        
-        rec_1 = Rectangle()
-        
-        rec_2 = Rectangle(1)
-        rec_1 = Rectangle()
+        with self.assertRaises(TypeError):
+            rec_2 = Rectangle(1)
+        with self.assertRaises(TypeError):
+            rec_1 = Rectangle()
 
+    def test_area(self):
+        rect = Rectangle(3, 2)
+        self.assertEqual(rect.area(), 6)
+        with self.assertRaises(TypeError):
+            rect.area(1)
+
+    def test_str(self):
+        rect_1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(rect_1), "[Rectangle] (12) 2/1 - 4/6")
