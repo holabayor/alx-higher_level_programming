@@ -75,7 +75,6 @@ class Rectangle(Base):
         self.validate('y', value, False)
         self.__y = value
 
-
     def area(self):
         """ Calculates the area """
         return self.__width * self.__height
