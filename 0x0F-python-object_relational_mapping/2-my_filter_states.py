@@ -13,7 +13,7 @@ if __name__ == "__main__":
                          host='localhost',
                          port=3306)
     cursor = db.cursor()
-    cursor.execute(f"SELECT id, name FROM states WHERE name\
+    cursor.execute(f"SELECT * FROM states WHERE name\
                     LIKE BINARY '{sys.argv[4]}' ORDER BY id ASC")
 
     states = cursor.fetchall()
