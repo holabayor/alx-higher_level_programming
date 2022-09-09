@@ -4,7 +4,7 @@ import sys
 import MySQLdb as mysql
 
 def show(**args):
-    db = mysql.connect(**args)
+    db = mysql.connect(port=3306, **args)
     cursor = db.cursor()
     cursor.execute("SELECT id, \
         name FROM states ORDER BY id ASC")
