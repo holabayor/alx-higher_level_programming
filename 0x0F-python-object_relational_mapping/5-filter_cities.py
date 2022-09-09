@@ -14,7 +14,8 @@ if __name__ == "__main__":
                          port=3306)
     cursor = db.cursor()
     cursor.execute(f"SELECT cities.name\
-                     FROM states INNER JOIN cities ON cities.state_id = states.id\
+                     FROM states INNER JOIN cities\
+                     ON cities.state_id = states.id\
                      WHERE states.name = '{sys.argv[4]}'\
                      ORDER BY cities.id ASC")
 
