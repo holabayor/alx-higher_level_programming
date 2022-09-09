@@ -3,8 +3,8 @@
 import sys
 import MySQLdb as mysql
 
-def show(**args):
-    db = mysql.connect(port=3306, **args)
+def show(*args):
+    db = mysql.connect(*args)
     cursor = db.cursor()
     cursor.execute("SELECT id, \
         name FROM states ORDER BY id ASC")
@@ -19,4 +19,5 @@ if __name__ == __main__:
     user = sys.argv[1]
     passwd = sys.argv[2]
     db = sys.argv[3]
-    show(user, passwd, db)
+    port = 3306
+    show(user, passwd, db, port)
