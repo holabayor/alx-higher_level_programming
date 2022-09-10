@@ -13,8 +13,9 @@ if __name__ == "__main__":
                          host='localhost',
                          port=3306)
     cursor = db.cursor()
-    cursor.execute("SELECT id, name FROM states WHERE name\
-                    = '{}' ORDER BY id ASC".format(sys.argv[4]))
+    cursor.execute("SELECT id, name FROM states\
+                    WHERE BINARY name = '{}'\
+                    ORDER BY id ASC".format(sys.argv[4]))
 
     states = cursor.fetchall()
 
