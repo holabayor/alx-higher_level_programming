@@ -17,4 +17,4 @@ if __name__ == "__main__":
         instance = session.query(State).first()
         print(f"{instance.id}: {instance.name}")
     except Exception:
-        print()
+        pass
