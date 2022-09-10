@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Script that list all states from database hbtn_0e_0_usa
-    starting with N
+    that matches the input state
 """
 import sys
 import MySQLdb
@@ -13,8 +13,9 @@ if __name__ == "__main__":
                          host='localhost',
                          port=3306)
     cursor = db.cursor()
-    cursor.execute(f"SELECT * FROM states WHERE name\
-                    LIKE BINARY '{sys.argv[4]}' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states\
+                    WHERE BINARY name = '%s'\
+                    ORDER BY id ASC" % sys.argv[4])
 
     states = cursor.fetchall()
 
