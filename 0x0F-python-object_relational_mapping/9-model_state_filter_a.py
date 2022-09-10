@@ -13,8 +13,6 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    try:
-        instance = session.query(State).first()
+    query = session.query(State).filter(State.name.ilike('%a%'))
+    for instance in query:
         print(f"{instance.id}: {instance.name}")
-    except Exception:
-        print("Nothing")
