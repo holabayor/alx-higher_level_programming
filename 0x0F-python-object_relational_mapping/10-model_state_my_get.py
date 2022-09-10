@@ -14,7 +14,7 @@ if __name__ == "__main__":
     session = Session()
 
     try:
-        query = session.query(State).filter(State.name == sys.argv[4])
+        query = session.query(State).filter(State.name == sys.argv[4]).first()
         print(f"{query.id}")
     except Exception as e:
         print("Not found")
