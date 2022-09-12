@@ -16,7 +16,8 @@ if __name__ == "__main__":
 
     session = Session(engine)
 
-    data = session.query(State).order_by(State.id).all()
+    data = session.query(State).join(City).\
+        order_by(State.id, City.id).all()
 
     for row in data:
         print("{}: {}".format(row.id, row.name))
