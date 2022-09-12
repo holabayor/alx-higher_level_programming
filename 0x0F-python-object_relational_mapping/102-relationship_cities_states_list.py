@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 """
-script that lists all City objects
-from the database hbtn_0e_101_usa
+    Script that lists all City objects
+    from the database hbtn_0e_101_usa
 """
-import sqlalchemy
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
+import sys
+from relationship_state import State, Base
 from relationship_city import City
-from sys import argv
-
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
