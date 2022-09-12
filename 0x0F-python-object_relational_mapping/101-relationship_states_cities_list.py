@@ -21,7 +21,7 @@ if __name__ == "__main__":
     for row in data:
         print("{}: {}".format(row.id, row.name))
         for city in row.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
 
     session.commit()
     session.close()
