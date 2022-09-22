@@ -1,3 +1,3 @@
 #!/bin/bash
 # Script that sends a JSON POST request
-curl -sX "$1" -H 'Content-Type: application/json' -d "$2"
+curl -sIX POST --data "$2" -H 'Content-Type: application/json' "$1"
