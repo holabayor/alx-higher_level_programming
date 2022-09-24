@@ -8,9 +8,6 @@ import sys
 
 if __name__ == '__main__':
     r = requests.get(sys.argv[1])
-    try:
-        r.raise_for_status()
-        print(r.text)
-    except requests.exception.HTTPError as e:
-        code = r.status_code
-        print("Error code: ".format(code))
+    r.raise_for_status()
+    code = r.status_code
+    print(r.text) if code < 400 else print("Error code: ".format(code))
