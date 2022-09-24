@@ -14,4 +14,4 @@ if __name__ == '__main__':
     r = requests.get(url).json()
     for commit in r[:10]:
         print("{}: {}".format(commit['sha'],
-                              commit['commit']['author']['name']))
+                              commit['commit']['committer']['name']))
