@@ -12,6 +12,6 @@ if __name__ == '__main__':
     url = "https://api.github.com/repos/{}/{}/commits".format(sys.argv[1],
                                                               sys.argv[2])
     r = requests.get(url).json()
-    for commit in r[-10:]:
-        print("{}: {}".format(commit['sha'],
-                              commit['commit']['author']['name']))
+    for commit in r[:10]:
+        print("{}: {}".format(commit.get('sha'),
+                              commit.get('commit').get('author').get('name')))
