@@ -7,10 +7,10 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    owner = sys.argv[1]
-    repo = sys.argv[2]
-    url = "https://api.github.com/repos/{}/{}/commits".format(sys.argv[1],
-                                                              sys.argv[2])
+    owner = sys.argv[2]
+    repo = sys.argv[1]
+    url = "https://api.github.com/repos/{}/{}/commits".format(owner,
+                                                              repo)
     r = requests.get(url).json()
     for commit in r[:10]:
         print("{}: {}".format(commit.get('sha'),
