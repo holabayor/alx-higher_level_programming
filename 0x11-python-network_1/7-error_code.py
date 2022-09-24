@@ -8,6 +8,5 @@ import sys
 
 if __name__ == '__main__':
     r = requests.get(sys.argv[1])
-    r.raise_for_status()
     code = r.status_code
     print(r.text) if code < 400 else print("Error code: ".format(code))
