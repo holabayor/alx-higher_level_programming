@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Script that f a file
+// Script that returns the status code of a request
 
 const request = require('request');
 
